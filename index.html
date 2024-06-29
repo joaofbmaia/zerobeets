@@ -42,6 +42,32 @@
         const today = new Date();
         const options = { month: 'long', day: 'numeric' };
         document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', options);
+
+        // Function to fetch the number of coins (beets) from the API
+        async function fetchBeets() {
+            try {
+                const response = await fetch('https://api.example.com/check_pp'); // Replace with the actual API endpoint
+                const data = await response.json();
+                const beetCount = data.coins; // Adjusted to match the API response structure
+
+                // Update the text based on the beet count
+                const mainText = document.getElementById('main-text');
+                const emoji = document.getElementById('emoji');
+
+                if (beetCount === 0) {
+                    mainText.innerHTML = '<u>yes</u>, pp has <u>0</u> beets';
+                    emoji.textContent = '🤡';
+                } else {
+                    mainText.innerHTML = `no, surprisingly pp has <u>${beetCount}</u> beets`;
+                    emoji.textContent = '😲';
+                }
+            } catch (error) {
+                console.error('Error fetching the beet count:', error);
+            }
+        }
+
+        // Fetch the beets on page load
+        fetchBeets();
     </script>
 </body>
 </html>
