@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Does PP have zero beets?</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Helvetica', Arial, sans-serif;
+            color: #1c1c1c;
+            font-weight: bold;
+            text-align: center;
+            flex-direction: column;
+        }
+        .main-text {
+            font-size: 6em;
+            margin: 0;
+        }
+        .date-text {
+            font-size: 4em;
+            margin: 0;
+        }
+        .emoji {
+            font-size: 6em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="date-text">as of <span id="today-date"></span>,</p>
+        <p class="main-text"><u>yes</u>, pp has <u>0</u> beets</p>
+        <p class="emoji">🤡</p>
+    </div>
+    <script>
+        const today = new Date();
+        const options = { month: 'long', day: 'numeric' };
+        document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', options);
+    </script>
+</body>
+</html>
